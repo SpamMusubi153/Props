@@ -45,14 +45,6 @@ const stop = watchEffect(() => {
   }
 });
 
-function LoadJS() {
-  let script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = "https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js";
-  if (!scripLoaded.value) {
-    document.head.appendChild(script);
-  }
-}
 
 function loadCSS() {
   if (!scripLoaded.value) {
