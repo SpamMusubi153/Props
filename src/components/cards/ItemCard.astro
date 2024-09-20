@@ -6,6 +6,7 @@ import ProductPrice from "@components/shop/ProductPrice.astro";
 
 const { content, base_url, sizes, animate } = Astro.props;
 
+const site = import.meta.env.BASE_URL;
 const base = import.meta.env.BASE_URL;
 
 const animation = `hero_${animate ? content.slug : Math.random()}`;
