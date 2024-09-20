@@ -9,9 +9,3 @@ export async function getStaticPaths() {
     };
   });
 }
-
-const { slug } = Astro.params;
-
-// Use the slug to serve the corresponding image
----
-<img src={`/assets/${slug}.jpg`} alt={slug} />
