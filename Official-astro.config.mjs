@@ -6,7 +6,14 @@ import m2dx from "astro-m2dx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import rehypeExternalLinks from "rehype-external-links";
+import fauxRemarkEmbedder from "@remark-embedder/core";
+import fauxOembedTransformer from "@remark-embedder/transformer-oembed";
+
+const remarkEmbedder = fauxRemarkEmbedder.default;
+const oembedTransformer = fauxOembedTransformer.default;
+
 import vue from "@astrojs/vue";
+/** @type {import('astro-m2dx').Options} */
 
 const m2dxOptions = {
   exportComponents: true,
@@ -14,11 +21,12 @@ const m2dxOptions = {
   autoImports: true,
 };
 
+// https://astro.build/config
 export default defineConfig({
   site: "https://nebulix.unfolding.io",
   integrations: [
     icon(),
-    mdx(),
+    mdx({}),
     sitemap(),
     tailwind(),
     vue({
@@ -29,6 +37,12 @@ export default defineConfig({
   markdown: {
     extendDefaultPlugins: true,
     remarkPlugins: [
+      [
+        remarkEmbedder,
+        {
+          transformers: [oembedTransformer],
+        },
+      ],
       [m2dx, m2dxOptions],
     ],
     rehypePlugins: [
