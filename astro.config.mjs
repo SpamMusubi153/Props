@@ -15,7 +15,7 @@ const m2dxOptions = {
 };
 
 export default defineConfig({
-  site: "https://nebulix.unfolding.io",
+  site: "https://spammusubi153.github.io/Props/",
   integrations: [
     icon(),
     mdx(),
