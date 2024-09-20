@@ -6,11 +6,12 @@ import ProductPrice from "@components/shop/ProductPrice.astro";
 
 const { content, base_url, sizes, animate } = Astro.props;
 
+const base = import.meta.env.BASE_URL;
+
 const animation = `hero_${animate ? content.slug : Math.random()}`;
 ---
-
 <a
-  href={`/${base_url}/${content.slug}/`}
+  href={`${base_url}/${content.slug}/`}
   class="blog-card surface-dark fade-up group relative z-10 block overflow-hidden rounded-md"
   transition:name={`${animation}`}
 >

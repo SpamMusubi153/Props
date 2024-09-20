@@ -17,6 +17,7 @@ const m2dxOptions = {
 export default defineConfig({
   site: "https://spammusubi153.github.io/",
   base: "/Props/",
+  // trailingSlash: "always",
   integrations: [
     icon(),
     mdx(),

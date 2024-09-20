@@ -5,12 +5,15 @@ import { Picture } from "astro-imagetools/components";
 import ProductPrice from "@components/shop/ProductPrice.astro";
 
 const { content, base_url, animate } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+
 const animation = `hero_${animate ? content.slug : Math.random()}`;
 const cardAnimation = `card_${animate ? content.slug : Math.random()}`;
 ---
 
 <a
-  href={`/${base_url}/${content.slug}/`}
+  href={`${base_url}/${content.slug}/`}
   transition:name={`${cardAnimation}`}
   class="fade-up surface-overlay-hover group relative z-10 flex justify-between gap-8 rounded-md px-5 py-4 md:-ml-4 md:p-4"
 >
